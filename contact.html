@@ -12,6 +12,13 @@
 	<link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="./css/et-line.css">
 
+	<style>
+		#map {
+		  height: 400px;
+		  width: 100%;
+		}
+	</style>
+
   <title>Contactez-nous dans nos locaux lyonnais | La chouette agence</title>
 
 	<script src="./js/jquery-2.1.0.js"></script>
@@ -109,6 +116,18 @@
 				</form>
 			</div>
 			<div class="col-sm-6">
+				<h3>Localisation de l'agence</h3>
+				
+				<div id="map"></div>
+				<script>
+					function initMap() {
+						var lachouetteagence = {lat: 45.769734, lng: 4.830159};
+						var map = new google.maps.Map(
+							document.getElementById('map'), {zoom: 4, center: lachouetteagence});
+						var marker = new google.maps.Marker({position: lachouetteagence, map: map});
+					}
+				</script>
+
 				<p>
 					contact@lachouetteagence.com<br>2 place Sathonay 69001 Lyon<br>Ouvert de 9h à 18h, du lundi au vendredi<br>
 				</p>
@@ -180,6 +199,10 @@
 </div>
 <!-- Principal conteneur END -->
 
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlqJgq7eLqJyui3K8GfO8hI6KLvGod5mU&callback=initMap">
+</script>
 
 </body>
 </html>
